@@ -136,7 +136,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/7 08:18
      */
-    public static class Node<E> {
+    private static class Node<E> {
         E item;
         Node<E> next;
         Node<E> prev;
@@ -195,7 +195,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/12 15:15
      */
-    Node<E> node(int index) {
+    private Node<E> node(int index) {
         /**
          * @Description: 源码中这里的校验被注释掉了，应该是最开始写在了获取的地方
          *                  后续增加了其他方法之后，不适合在较为靠后的位置校验（比如addall方法）
@@ -228,7 +228,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/18 17:03
      */
-    public Node<E> node(Object o) {
+    private Node<E> node(Object o) {
         if (o == null) {
             for (Node<E> x = first; x != null; x = x.next) {
                 if (x.item == null)
@@ -264,7 +264,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/18 13:56
      */
-    void linkLast(E e) {
+    private void linkLast(E e) {
         final Node<E> l = last;
         final Node<E> newNode = new Node<>(l, e, null);
         last = newNode;
@@ -283,7 +283,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/18 15:09
      */
-    void linkBefore(E e, Node<E> succ) {
+    private void linkBefore(E e, Node<E> succ) {
         final Node<E> pred = succ.prev;
         final Node<E> newNode = new Node<>(pred, e, succ);
         succ.prev = newNode;
@@ -294,11 +294,11 @@ public class LinkedList<E> implements List<E> {
 
     /**
      * @Description: 在succ后新增
-     * 这个方法不是linkedList里的方法
+     * 这个方法不是linkedList里的方法，后来才想明白，为什么要after，直接用size+1的before就行了啊
      * @Author: Kai
      * @Date: 2023/7/18 15:09
      */
-    void linkAfter(E e, Node<E> succ) {
+    private void linkAfter(E e, Node<E> succ) {
         final Node<E> next = succ.next;
         final Node<E> newNode = new Node<>(succ, e, next);
         succ.next = newNode;
@@ -319,7 +319,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/18 17:49
      */
-    E unlink(Node<E> x) {
+    private E unlink(Node<E> x) {
         final E element = x.item;
         final Node<E> next = x.next;
         final Node<E> prev = x.prev;
@@ -349,7 +349,7 @@ public class LinkedList<E> implements List<E> {
      * @Author: Kai
      * @Date: 2023/7/18 17:54
      */
-    void unlinkAll() {
+    private void unlinkAll() {
         for (Node<E> x = first; x != null; ) {
             Node<E> next = x.next;
             x.item = null;
