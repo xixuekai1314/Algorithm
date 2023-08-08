@@ -1,8 +1,5 @@
 package com.kai.structure.linear.list;
 
-import com.kai.structure.linear.List;
-import org.springframework.boot.context.properties.bind.Nested;
-
 /**
  * @ClassName: LinkedList
  * @Description: 链表

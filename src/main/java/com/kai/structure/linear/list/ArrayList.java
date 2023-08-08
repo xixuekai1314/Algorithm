@@ -1,8 +1,6 @@
 package com.kai.structure.linear.list;
 
-import com.kai.structure.linear.List;
 import java.util.Arrays;
-import java.util.Iterator;
 
 
 /**

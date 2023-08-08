@@ -1,4 +1,4 @@
-package com.kai.structure.linear;
+package com.kai.structure.linear.list;
 
 /**
  * @ClassName: list
